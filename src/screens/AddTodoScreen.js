@@ -19,6 +19,7 @@ const AddTodoScreen = () => {
         <View style={styles.containerStyle}>
             <TextInput
                 placeholder='Type here...'
+                placeholderTextColor={"lightgrey"}
                 style={styles.inputStyle}
                 value={data} 
                 onChangeText={(txt)=>setData(txt)} 
