@@ -50,8 +50,6 @@ const MainScreen = ({ navigation }) => {
   useEffect(() => {
     dispatch(todo(state.page));
   }, []);
-
-
   
   const handleAddNew = () => {
     navigation.navigate('AddNewScreen');
