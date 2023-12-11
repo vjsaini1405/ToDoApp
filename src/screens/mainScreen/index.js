@@ -55,6 +55,8 @@ const MainScreen = ({ navigation }) => {
     navigation.navigate('AddNewScreen');
   };
 
+  
+
   const handleDeleteItem = (todoId) => {
     dispatch(todoDelete(todoId))
   };
