@@ -1,17 +1,18 @@
-import axios from 'axios';
+const url = "https://jsonplaceholder.typicode.com/todos";
+const limit = 20;
 
-const API_URL = 'https://jsonplaceholder.typicode.com/todos';
-
-export const fetchTodos = async (start, limit) => {
-  try {
-    const response = await axios.get(API_URL, {
-      params: {
-        _start: start,
-        _limit: limit,
-      },
-    });
-    return response.data;
-  } catch (error) {
-    throw error;
+export const API = {
+  getTodoList: async (requestData) => {
+    // console.log("resuestData",requestData);
+    try {
+      const response = await fetch(`${url}?_page=${requestData}&_limit=${limit}`);
+      const data = await response.json();
+      const totalItems= response.headers.get('x-total-count');
+      // console.log(data);
+      return {data,totalItems};
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
   }
 };

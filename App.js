@@ -1,25 +1,24 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import MainScreen from './src/screens/MainScreen';
-import AddTodoScreen from './src/screens/AddTodoScreen';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View,Text, StatusBar } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import MainNavigator from './src/navigations';
+import { Color } from './src/themes';
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './src/redux/store';
 
-const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <Provider store={store}>
-    <NavigationContainer >
-      <Stack.Navigator initialRouteName={"Main"}>
-        <Stack.Screen name="Main" component={MainScreen} options={{
-          headerShown:false
-        }} />
-        <Stack.Screen name="AddTodo" component={AddTodoScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-    </Provider>
+    <GestureHandlerRootView style={{flex:1}}>
+      <StatusBar
+      animated={true}
+        barStyle={'light-content'}
+        backgroundColor={Color.black}
+      />
+      <Provider store ={store}>
+      <MainNavigator/>
+      </Provider>
+    </GestureHandlerRootView>
   );
 };
 
