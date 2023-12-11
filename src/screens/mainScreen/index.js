@@ -51,6 +51,8 @@ const MainScreen = ({ navigation }) => {
     dispatch(todo(state.page));
   }, []);
 
+
+  
   const handleAddNew = () => {
     navigation.navigate('AddNewScreen');
   };
