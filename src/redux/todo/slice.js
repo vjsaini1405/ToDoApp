@@ -6,7 +6,8 @@ const slice =createSlice({
         todoList :[],
         isLoading:false,
         filterData:[],
-        totalItems:0
+        totalItems:0,
+        completed:0
     },
     reducers:{
         todo:state=>{
@@ -15,7 +16,13 @@ const slice =createSlice({
         todoSuccess:(state,{payload})=>{
             state.isloading=false,
             state.todoList=payload?.data
-            state.totalItems=payload.totalItems
+            state.totalItems=payload?.totalItems
+            // state.completed= state.todoList.filter((item)=>{
+            //     if(item.completed ==true){
+            //         return item
+            //     }
+            // })
+            // console.log("completed",state.completed);
         },
         todoFailed:(state)=>{
             state.isloading=false

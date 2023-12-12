@@ -78,6 +78,9 @@ const MainScreen = ({ navigation }) => {
       dispatch(todoLodeMore(state.page))
       setState((prev) => ({ ...prev, isLoadMore: false }));
     }
+    else{
+      setState((prev) => ({ ...prev, isLoadMore: false }));
+    }
   };
 
   const handleToggale = (itemId) => {
